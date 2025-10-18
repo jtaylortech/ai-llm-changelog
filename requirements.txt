@@ -1,0 +1,8 @@
+# No external dependencies required
+# The scraper uses only Python standard library:
+# - urllib (HTTP requests)
+# - json (data parsing)
+# - datetime (timestamps)
+# - os, sys (file operations)
+
+# Python 3.11+ recommended

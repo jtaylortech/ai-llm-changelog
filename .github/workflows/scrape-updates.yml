@@ -1,0 +1,59 @@
+name: Scrape AI Model Updates
+
+on:
+  schedule:
+    # Run at 09:00 UTC on Mon, Wed, Fri
+    - cron: '0 9 * * 1,3,5'
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow committing scraped results
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run scraper
+        run: |
+          python scripts/scrape.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add raw/
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected"
+          fi
+
+      - name: Commit and push results
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "🤖 Auto-scrape: $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Create notification issue
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📊 New scrape results: ${date}`,
+              body: `New AI model updates have been scraped and saved to \`raw/${date}-summary.txt\`.\n\n**Next steps:**\n1. Review the summary file\n2. Paste relevant sections into your AI assistant\n3. Ask for a summary of the changes\n4. Commit summary to \`/updates/\`\n\n[View raw results](https://github.com/${context.repo.owner}/${context.repo.repo}/tree/main/raw)`
+            });
