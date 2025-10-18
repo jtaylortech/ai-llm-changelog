@@ -2,7 +2,7 @@
 
 **Stay updated on the latest changes from Anthropic, OpenAI, and Google AI.**
 
-Automated tracking of Claude, GPT, and Gemini model releases, API updates, and feature launches. Delivered as curated weekly summaries with actionable insights.
+Automated tracking of Anthropic, GPT, and Gemini model releases, API updates, and feature launches. Delivered as curated weekly summaries with actionable insights.
 
 ---
 
@@ -18,12 +18,12 @@ Automated tracking of Claude, GPT, and Gemini model releases, API updates, and f
 ## 🎯 What This Tracks
 
 ### Providers (Priority Order)
-1. **Anthropic** - Claude models and API
+1. **Anthropic** - AI models and API
 2. **OpenAI** - GPT models and API
 3. **Google** - Gemini models and API
 
 ### Update Categories
-- ✅ **Model Releases** - New model families (e.g., Claude 3.5 → Claude 4)
+- ✅ **Model Releases** - New model families (e.g., GPT-4 → GPT-5)
 - ✅ **Version Updates** - Model iterations (e.g., GPT-4 → GPT-4 Turbo)
 - ✅ **API Features** - New capabilities (vision, streaming, function calling)
 - ✅ **Pricing Changes** - Cost adjustments
@@ -94,7 +94,7 @@ cat raw/$(date +%Y-%m-%d)-summary.txt
 
 ### 3. Summarize with AI Assistant
 1. Copy relevant sections from summary file
-2. Paste into your preferred LLM (ChatGPT, Claude, Gemini, etc.)
+2. Paste into your preferred LLM (ChatGPT, Gemini, etc.)
 3. Ask: *"Summarize these AI model updates. For each change, include: what changed, why it matters, and migration notes if applicable."*
 
 ### 4. Commit Your Summary
@@ -216,7 +216,7 @@ MIT License - Use freely
 
 ## 💡 Why This Exists
 
-AI models are evolving rapidly. Keeping up with Claude, GPT, and Gemini updates across blogs, changelogs, and release notes is time-consuming.
+AI models are evolving rapidly. Keeping up with Anthropic, GPT, and Gemini updates across blogs, changelogs, and release notes is time-consuming.
 
 **This repo solves that by:**
 - 🤖 Automating the scraping

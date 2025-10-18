@@ -1,15 +1,15 @@
-# Anthropic Claude Updates
+# Anthropic AI Updates
 
 **Last Updated:** 2025-10-16
 
 ## Overview
-Track Claude model releases, API updates, and feature launches from Anthropic.
+Track Anthropic model releases, API updates, and feature launches.
 
 ## Current Models (as of last check)
-- **Claude 3.5 Sonnet** - Flagship model for complex tasks
-- **Claude 3 Opus** - Most capable model
-- **Claude 3 Sonnet** - Balanced performance
-- **Claude 3 Haiku** - Fast, lightweight
+- **Sonnet 3.5** - Flagship model for complex tasks
+- **Opus 3** - Most capable model
+- **Sonnet 3** - Balanced performance
+- **Haiku 3** - Fast, lightweight
 
 ## Recent Updates
 *Updates will be populated by automated scraping + manual summaries*
@@ -29,8 +29,8 @@ Track Claude model releases, API updates, and feature launches from Anthropic.
 - **Frequency:** 3x/week (Mon/Wed/Fri)
 
 ## What to Track
-- ✅ New model releases (e.g., Claude 3.5 → Claude 4)
-- ✅ Model version updates (e.g., Sonnet 4 → 4.5)
+- ✅ New model releases (e.g., Sonnet 3.5 → Sonnet 4)
+- ✅ Model version updates (e.g., Opus 3 → Opus 3.5)
 - ✅ API feature launches (vision, streaming, function calling)
 - ✅ Pricing changes
 - ✅ Context window increases
