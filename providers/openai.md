@@ -30,6 +30,11 @@ Track GPT model releases, API updates, and feature launches from OpenAI.
 - **Secondary:** Research blog RSS feed
 - **Frequency:** 3x/week (Mon/Wed/Fri)
 
+### Known Issues
+- ⚠️ **Bot Detection:** OpenAI may block automated scraping with 403 errors
+- **Workaround:** Manual checks at https://platform.openai.com/docs/changelog
+- **Alternative:** Subscribe to OpenAI's official newsletter or RSS feeds
+
 ## What to Track
 - ✅ New model releases (e.g., GPT-4 → GPT-5)
 - ✅ Model iterations (e.g., GPT-4 Turbo updates)

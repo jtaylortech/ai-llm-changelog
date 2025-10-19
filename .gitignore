@@ -3,3 +3,7 @@ progress.md
 
 # Local configuration
 .claude/
+
+# Scraped raw data (auto-generated)
+raw/*.json
+raw/*.txt

@@ -11,13 +11,27 @@ from datetime import datetime
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 import json
+import gzip
 
-def fetch_url(url, user_agent='Mozilla/5.0'):
+def fetch_url(url, user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'):
     """Fetch URL content with proper headers"""
     try:
-        req = Request(url, headers={'User-Agent': user_agent})
-        with urlopen(req, timeout=10) as response:
-            return response.read().decode('utf-8')
+        headers = {
+            'User-Agent': user_agent,
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate',
+            'DNT': '1',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1'
+        }
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=15) as response:
+            data = response.read()
+            # Handle gzip compression
+            if response.headers.get('Content-Encoding') == 'gzip':
+                data = gzip.decompress(data)
+            return data.decode('utf-8')
     except (URLError, HTTPError) as e:
         print(f"Error fetching {url}: {e}", file=sys.stderr)
         return None
@@ -57,7 +71,11 @@ def scrape_anthropic():
     return results
 
 def scrape_openai():
-    """Scrape OpenAI changelog and research blog"""
+    """Scrape OpenAI changelog and research blog
+
+    Note: OpenAI has strong bot detection and may return 403 errors.
+    Manual fallback: Check https://platform.openai.com/docs/changelog directly.
+    """
     print("Scraping OpenAI...")
 
     results = {
@@ -66,7 +84,7 @@ def scrape_openai():
         'sources': []
     }
 
-    # OpenAI API Changelog
+    # OpenAI API Changelog (may be blocked by bot detection)
     changelog_url = 'https://platform.openai.com/docs/changelog'
     changelog_html = fetch_url(changelog_url)
     if changelog_html:

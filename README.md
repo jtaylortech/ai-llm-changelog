@@ -173,6 +173,12 @@ Each summary follows this template:
 
 ## 🛠️ Maintenance
 
+### Known Limitations
+- ⚠️ **OpenAI Bot Detection:** OpenAI may block automated scraping (403 errors)
+  - Scraper will continue with other providers
+  - Manual fallback: Check [changelog](https://platform.openai.com/docs/changelog) directly
+  - Data for Anthropic and Google will still be collected
+
 ### When Scraper Breaks
 If a provider changes their site structure:
 
