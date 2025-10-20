@@ -19,8 +19,8 @@ Track Anthropic model releases, API updates, and feature launches.
 ## Key Resources
 - **Official Site:** https://www.anthropic.com
 - **API Docs:** https://docs.anthropic.com
-- **Changelog:** https://docs.anthropic.com/en/docs/about-claude/changelog
-- **Release Notes:** https://www.anthropic.com/news
+- **Release Notes:** https://docs.anthropic.com/en/release-notes
+- **News:** https://www.anthropic.com/news
 - **Pricing:** https://www.anthropic.com/pricing
 
 ## Scraping Strategy

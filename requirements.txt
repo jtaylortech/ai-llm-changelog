@@ -1,8 +1,7 @@
-# No external dependencies required
-# The scraper uses only Python standard library:
-# - urllib (HTTP requests)
-# - json (data parsing)
-# - datetime (timestamps)
-# - os, sys (file operations)
+# HTML parsing
+beautifulsoup4>=4.12.0
+
+# RSS/Atom feed parsing
+feedparser>=6.0.0
 
 # Python 3.11+ recommended
